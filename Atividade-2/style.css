@@ -23,6 +23,13 @@ h1{
     padding: 0 20px;
 }
 
+.container p{
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
 .procurar{
     width: 100%;
     max-width: 980px;
@@ -61,7 +68,15 @@ h1{
     font-size: 1.2rem;
     cursor: pointer;
 }
+.procurar button:hover{
+    background-color: #451c6b;
+}
 
+.procurar p{
+    font-size: 1.2rem;
+    color: #333;
+    margin: 20px 0;
+}
 .button{
     width: 100%;
     max-width: 200px;
