@@ -115,7 +115,7 @@ function mostrarIMC(Pessoa) {
     };
 
 function separarPorCategoria(){
-    //Tabela com a quantidade de cada pessoa por categoria
+    //vetor com a quantidade de cada pessoa por categoria
     var tabela = {
         "Abaixo do peso!": 0,
         "Peso normal!": 0,
