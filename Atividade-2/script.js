@@ -71,14 +71,93 @@ var Pessoas = [{
     "CategoriaIMC": "N/A"
 },
 {
-    "Nome": "José",
+    "Nome": "Clarice",
+    "Idade": 18,
+    "Altura": 1.80,
+    "Peso": 65,
+    "IMC": 0,
+    "CategoriaIMC": "Pés pequininhos..."
+},
+{
+    "Nome": "Ana",
+    "Idade": 17,
+    "Altura": 1.71,
+    "Peso": 66,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Paulo",
+    "Idade": 17,
+    "Altura": 1.62,
+    "Peso": 68,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Pedro",
+    "Idade": 80,
+    "Altura": 1.83,
+    "Peso": 63,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Marcos",
+    "Idade": 17,
+    "Altura": 1.63,
+    "Peso": 58,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Julia",
     "Idade": 18,
     "Altura": 1.74,
     "Peso": 65,
     "IMC": 0,
     "CategoriaIMC": "N/A"
 },
-
+{
+    "Nome": "Juliana",
+    "Idade": 17,
+    "Altura": 1.71,
+    "Peso": 66,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Amanda",
+    "Idade": 17,
+    "Altura": 1.62,
+    "Peso": 68,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Aline",
+    "Idade": 80,
+    "Altura": 1.83,
+    "Peso": 63,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "João",
+    "Idade": 17,
+    "Altura": 1.63,
+    "Peso": 58,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+},
+{
+    "Nome": "Maria",
+    "Idade": 18,
+    "Altura": 1.80,
+    "Peso": 65,
+    "IMC": 0,
+    "CategoriaIMC": "N/A"
+}
 ];
 
 //função para calcular o IMC com o objeto Pessoas e editar o IMC de cada pessoa
@@ -108,11 +187,18 @@ function calcularIMC() {
 calcularIMC();
 
 //função para mostrar o nome e o IMC de cada pessoa de acordo com o parâmetro passado
-function mostrarIMC(Pessoa) {
+function mostrarIMC() {
+    var Numero = document.getElementById("Numero").value;
+    Numero--;
+    var Pessoa = Pessoas[Numero];
+    if ( Numero < 0 || Numero > 19){
+        document.getElementById("resultado").innerHTML = "Número inválido!";
+    }else{
         var texto = "";
         texto += Pessoa.Nome + " - " + Pessoa.IMC.toFixed(2) + " Categorizado(a): "+ Pessoa.CategoriaIMC +"<br>";
         document.getElementById("resultado").innerHTML = texto;
     };
+};
 
 function separarPorCategoria(){
     //vetor com a quantidade de cada pessoa por categoria
@@ -136,3 +222,14 @@ function separarPorCategoria(){
     }
     document.getElementById("resultado").innerHTML = texto;
 };
+
+//Mostrar todos em uma lista.
+function mostrarTodos(){
+    var texto = "";
+    for (var i = 0; i < Pessoas.length; i++) {
+        var lugar = i + 1;
+        var pessoa = Pessoas[i];
+        texto += lugar + " | " + pessoa.Nome + " - " + pessoa.IMC.toFixed(2) + " Categorizado(a): "+ pessoa.CategoriaIMC +"<br>";
+    }
+    document.getElementById("resultado").innerHTML = texto;
+}
