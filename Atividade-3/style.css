@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body{
+    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container{
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container p{
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.procurar{
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.procurar label{
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.procurar input{
+    width: 100%;
+    max-width: 100px;
+    height: 50px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.procurar button{
+    width: 80px;
+    height: 50px;
+    margin-left: 10px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.procurar button:hover{
+    background-color: #451c6b;
+}
+
+.procurar p{
+    font-size: 1.2rem;
+    color: #333;
+    margin: 20px 0;
+}
+.button{
+    width: 100%;
+    max-width: 200px;
+    min-height: 50px;
+    border-radius: 45px;
+    background-color: #451c6b;
+    color: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.resultado {
+    border: #333 3px solid;
+    border-radius: 20px;
+    background-color: #fff;
+    width: 500px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.resultado-texto{
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+    margin: 20px 0;
+}
