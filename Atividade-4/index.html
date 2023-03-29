@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Eventos JS</h1>
+        </div>
+        <div class="boxInfo">
+            <h2>Eventos em JavaScript são ações que ocorrem no navegador ou no documento e que são detectadas pelo JavaScript para que ele possa executar um código específico em resposta a essas ações. Um evento pode ser acionado por uma variedade de ações, como clique do mouse, pressionamento de tecla, movimento do mouse, alteração de conteúdo em um campo de formulário, carregamento de uma página, alguns deles são:</h2>
+        </div>
+        <div class="box">
+            <input class="btn" type="button" value="onClick" onclick="selecionaEvento('onClick')">
+            <input class="btn" type="button" value="dblClick" onclick="selecionaEvento('dblClick')">
+            <input class="btn" type="button" value="onChange" onclick="selecionaEvento('onChange')">
+            <input class="btn" type="button" value="input" onclick="selecionaEvento('input')">
+            <input class="btn" type="button" value="onLoad" onclick="selecionaEvento('onLoad')">
+            <input class="btn" type="button" value="onMouseOver" onclick="selecionaEvento('onMouseOver')">
+            <input class="btn" type="button" value="onMouseOut" onclick="selecionaEvento('onMouseOut')">
+            <input class="btn" type="button" value="onKeyDown" onclick="selecionaEvento('onKeyDown')">
+            <input class="btn" type="button" value="onKeyUp" onclick="selecionaEvento('onKeyUp')">
+            <input class="btn" type="button" value="onFocus" onclick="selecionaEvento('onFocus')">
+        </div>
+        <div class="boxResultado">
+            <h2>Evento: </h2><h3 id="evento"></h3><br>
+            <h2>Descrição: </h2><div class="Desc"><p id="descEvento"></p></div>
+            <h2>Exemplo: </h2>
+            <div class="boxExemplo" id="boxExemplo">
+                
+            </div>
+        </div>
+
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
