@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Currículo</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <form id="form">
+    <div id="dadosPessoais">
+    <h2>Dados Pessoais</h2>
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" />
+        </div>
+        <div>
+            <label for="data-nascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" />
+        </div>
+        <div>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" />
+        </div>
+        <div>
+            <label for="estadoCivil">Estado Civil:</label>
+            <select id="estadoCivil">
+                <option value="">Selecione</option>
+                    <option value="solteiro">Solteiro(a)</option>
+                    <option value="casado">Casado(a)</option>
+                    <option value="divorciado">Divorciado(a)</option>
+                    <option value="viuvo">Viúvo(a)</option>
+            </select>
+        </div>
+    </div>
+    <div id="objetivoP">
+    <h2>Objetivo Profissional</h2>
+        <div>
+            <label for="objetivo">Objetivo:</label>
+            <textarea id="objetivo"></textarea>
+        </div>
+    </div>
+<div id="formacaoAcademica">
+    <h2>Formação Acadêmica</h2>
+        <div id="camposFormacao">
+        <div>
+            <label for="instituicao">Instituição:</label>
+            <input type="text" id="instituicao">
+        </div>
+        <div>
+            <label for="nivelFormacao">Nível:</label>
+            <select id="nivelFormacao">
+            <option value="">Selecione</option>
+                <option value="fundComp">Fundamental Completo</option>
+                <option value="fundIncomp">Fundamental Incompleto</option>
+                <option value="fundCurs">Fundamental Cursando</option>
+                <option value="medioComp">Médio Completo</option>
+                <option value="medioIncomp">Médio Incompleto</option>
+                <option value="medioCurs">Médio Cursando</option>
+                <option value="superiorComp">Superior Completo</option>
+                <option value="superiorIncomp">Superior Incompleto</option>
+                <option value="superiorCurs">Superior Cursando</option>
+            </select>
+        </div>
+        <div>
+            <label for="cursoa">Curso:</label>
+            <input type="text" id="curso">
+        </div>
+        <div>
+            <label for="dataInicio">Data de início:</label>
+            <input type="date" id="dataInicio">
+        </div>
+        <div id="Conclusao">
+            <label for="dataConclusao">Data de conclusão:</label>
+            <input type="date" id="dataConclusao">
+        </div>
+        <div id="ConclusaoEsperada">
+            <label for="dataConclusaoEsperada">Mês/Ano de conclusão esperada:</label>
+            <input type="month" id="dataConclusaoEsperada">
+        </div>
+    <button id="addFormAcad">Adicionar</button>
+        </div>
+        <div id="listaFormação">
+            <!-- Aqui serão adicionados os itens da lista -->
+        </div>
+</div>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
