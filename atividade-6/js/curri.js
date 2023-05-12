@@ -1,105 +1,80 @@
+//Pegando parametros da URL
 const urlParams = new URLSearchParams(window.location.search);
 
-// Dados Pessoais
+//Criando o Curriculo
+const content = document.createElement("content");
+document.body.appendChild(content);
+
+// Dados Pessoais - Informações
 const name = urlParams.get("name");
+const dataNasc = new Date(urlParams.get("dataNasc"));
 const email = urlParams.get("email");
 const phone = urlParams.get("phone");
+const estadoCivil = urlParams.get("estadoCivil");
 const address = urlParams.get("address");
 
-// Formação Acadêmica
+//Dados Pessoais - Criando elementos e alimentando com dados 
+const nameHeading = document.createElement("h2");
+nameHeading.textContent = name;
+const dataNascPara = document.createElement("p");
+dataNascPara.textContent = "Data de Nascimento: " + dataNasc.getDate() + "/" + dataNasc.getMonth() + "/" + dataNasc.getFullYear();
+const emailPara = document.createElement("p");
+emailPara.textContent = "E-mail: " + email;
+const phonePara = document.createElement("p");
+phonePara.textContent = "Telefone: " + phone;
+const estadoPara = document.createElement("p");
+estadoPara.textContent = "Estado Civil: " + estadoCivil;
+const addressPara = document.createElement("p");
+addressPara.textContent = "Endereço: " + address;
+
+//Objetivo profissional - Informações
+const objetivo = urlParams.get("objetivo");
+
+//Objetivo profissional - Criando elementos e alimentando com dados
+const objetivoHeading = document.createElement("h2");
+const objetivoPara = document.createElement("p");
+objetivoHeading.textContent = "Objetivo Profissional";
+objetivoPara.textContent = objetivo;
+
+// Formação Acadêmica - Definindo as informações necessarias
 const institutions = [];
 const degrees = [];
 const years = [];
 
+// Formação Acadêmica - Pegando as informações da URL
 urlParams.forEach(function(value, key) {
-  if (key.startsWith("institution")) {
-    institutions.push(value);
-  } else if (key.startsWith("degree")) {
-    degrees.push(value);
-  } else if (key.startsWith("year")) {
-    years.push(value);
-  }
+    if (key.startsWith("institution")) {
+        institutions.push(value);
+    } else if (key.startsWith("degree")) {
+        degrees.push(value);
+    } else if (key.startsWith("year")) {
+        years.push(value);
+    }
 });
 
-// Experiência Profissional
-const employers = [];
-const jobTitles = [];
-const jobDescriptions = [];
-const jobStartDates = [];
-const jobEndDates = [];
-
-urlParams.forEach(function(value, key) {
-  if (key.startsWith("employer")) {
-    employers.push(value);
-  } else if (key.startsWith("jobTitle")) {
-    jobTitles.push(value);
-  } else if (key.startsWith("jobDescription")) {
-    jobDescriptions.push(value);
-  } else if (key.startsWith("jobStartDate")) {
-    jobStartDates.push(value);
-  } else if (key.startsWith("jobEndDate")) {
-    jobEndDates.push(value);
-  }
-});
-
-// Criando os elementos do currículo
-const content = document.getElementById("content");
-
-const nameHeading = document.createElement("h2");
-nameHeading.textContent = name;
-
-const emailPara = document.createElement("p");
-emailPara.textContent = "E-mail: " + email;
-
-const phonePara = document.createElement("p");
-phonePara.textContent = "Telefone: " + phone;
-
-const addressPara = document.createElement("p");
-addressPara.textContent = "Endereço: " + address;
-
-// Formação Acadêmica
+// Formação Acadêmica - Criando Lista
 const educationHeading = document.createElement("h2");
 educationHeading.textContent = "Formação Acadêmica";
-
 const educationList = document.createElement("ul");
 
+// Formação Acadêmica - Criando elementos e alimentando com dados
 for (let i = 0; i < institutions.length; i++) {
-  const institutionItem = document.createElement("li");
-  institutionItem.textContent = institutions[i] + " - " + degrees[i] + " (" + years[i] + ")";
-  educationList.appendChild(institutionItem);
+    const institutionItem = document.createElement("li");
+    institutionItem.textContent = institutions[i] + " - " + degrees[i] + " (" + years[i] + ")";
+    educationList.appendChild(institutionItem);
 }
 
-// Experiência Profissional
-const experienceHeading = document.createElement("h2");
-experienceHeading.textContent = "Experiência Profissional";
 
-const experienceList = document.createElement("ul");
-
-for (let i = 0; i < employers.length; i++) {
-  const employerItem = document.createElement("li");
-  const jobTitlePara = document.createElement("p");
-  const jobDescriptionPara = document.createElement("p");
-  const jobDatePara = document.createElement("p");
-
-  jobTitlePara.textContent = jobTitles[i];
-  jobDescriptionPara.textContent = jobDescriptions[i];
-  jobDatePara.textContent = jobStartDates[i] + " - " + jobEndDates[i];
-
-  employerItem.appendChild(jobTitlePara);
-  employerItem.appendChild(jobDescriptionPara);
-  employerItem.appendChild(jobDatePara);
-
-  experienceList.appendChild(employerItem);
-}
-
-// Adicionando tudo ao conteúdo
+// Adicionando tudo ao curriculo
 content.appendChild(nameHeading);
+content.appendChild(dataNascPara);
 content.appendChild(emailPara);
 content.appendChild(phonePara);
+content.appendChild(estadoPara);
 content.appendChild(addressPara);
+
+content.appendChild(objetivoHeading);
+content.appendChild(objetivoPara);
 
 content.appendChild(educationHeading);
 content.appendChild(educationList);
-
-content.appendChild(experienceHeading);
-content.appendChild(experienceList);

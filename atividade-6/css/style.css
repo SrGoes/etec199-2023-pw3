@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.containerGeral {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgb(122, 122, 122));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.quadro {
+    background-color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 40px;
+}
+
+.formacaoAcademica {
+    display: none;
+    align-items: center;
+}
+
+.objetivoP {
+    display: none;
+}
+
+#form,
+.divForm {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 40%;
+    justify-content: space-around;
+}
+
+h2,
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    color: rgb(0, 0, 0);
+}
+
+input {
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: auto;
+    min-width: 150px;
+}
+
+input:focus {
+    outline: none;
+}
+
+span {
+    margin: 1% 2% 0 2%;
+    display: inline-block;
+    padding: .5%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-color: rgb(0, 0, 0);
+}
+
+#objetivo {
+    width: 100%;
+}
+
+#corTitulo {
+    color: rgb(0, 0, 0);
+}
+
+#btnNext {
+    margin-top: 30px;
+    background-color: rgb(25, 77, 145);
+    color: white;
+    border-radius: 30px;
+    border: none;
+}
+
+#btnBack {
+    display: none;
+    background-color: rgb(25, 77, 145);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    margin-top: 5px;
+}
+
+#btnSubmit {
+    display: none;
+    background-color: rgb(25, 77, 145);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    margin-top: 5px;
+}
+
+#addFormAcad {
+    background-color: rgb(25, 77, 145);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    margin-top: 5px;
+}
