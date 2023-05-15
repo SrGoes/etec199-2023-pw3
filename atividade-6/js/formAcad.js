@@ -7,50 +7,6 @@ const Conclusao = document.getElementById("Conclusao");
 const dataConclusaoEsperada = document.getElementById("dataConclusaoEsperada");
 const listaFormacao = document.getElementById("listaFormacao");
 
-export default function adicionarFormacao(event){
-    event.preventDefault();
-    if (validarCampos()) {
-        const item = document.createElement("div");
-        item.setAttribute("class", `formacao-${listaFormacao.childElementCount}`);
-        item.setAttribute("id", `formacao-${listaFormacao.childElementCount}`);
-        
-        item.innerHTML = `
-                <h3>Instituição: ${instituicao.value}</h3>
-                <p>Nível de Formação: ${formatarNivel(nivelFormacao.value)}</p>
-                <p>Curso: ${curso.value}</p>
-                <p>Data de início: ${formatarData(dataInicio.value)}</p>`;
-
-        if (nivelFormacao.value.endsWith("Comp")) {
-            item.innerHTML += `<p>Data de conclusão: ${formatarData(dataConclusao.value)}</p>`;
-        } else if (nivelFormacao.value.endsWith("Curs")) {
-            item.innerHTML += `<p>Conclusão esperada: ${formatarMesAno(dataConclusaoEsperada.value)}</p>`;
-        } else {
-            item.innerHTML += `<p>Data de conclusão: ${formatarData(dataConclusao.value)}</p>`;
-        }
-        const btnRemover = document.createElement("button");
-        btnRemover.innerText = "Remover";
-        btnRemover.addEventListener("click", () => {
-            item.remove();
-        });
-
-        item.appendChild(btnRemover);
-        listaFormacao.appendChild(item);
-
-
-        listaFormacao.appendChild(item);
-        nivelFormacao.value = "";
-        curso.value = "";
-        instituicao.value = "";
-        dataInicio.value = "";
-        dataConclusao.value = "";
-        dataConclusaoEsperada.value = "";
-        mostrarDataConclusao();
-    }
-}
-//refaça a função mas se já tiver 3 formações, não adicione mais
-
-
-
 function validarCampos() {
     const campos = [nivelFormacao, curso, instituicao, dataInicio];
     for (const campo of campos) {
@@ -96,6 +52,19 @@ function formatarNivel(nivel) {
     }
 }
 
+
+function formatarData(data) {
+    const dataArray = data.split("-");
+    return `${dataArray[2]}/${dataArray[1]}/${dataArray[0]}`;
+}
+
+function formatarMesAno(data) {
+    const dataArray = data.split("-");
+    const mes = dataArray[1];
+    const ano = dataArray[0];
+    return `${mes}/${ano}`;
+}
+
 export function mostrarDataConclusao() {
     if (nivelFormacao.value.endsWith("Comp")) {
         ConclusaoEsperada.style.display = "none";
@@ -109,14 +78,43 @@ export function mostrarDataConclusao() {
     }
 }
 
-function formatarData(data) {
-    const dataArray = data.split("-");
-    return `${dataArray[2]}/${dataArray[1]}/${dataArray[0]}`;
-}
+export default function adicionarFormacao(event){
+    event.preventDefault();
+    if (validarCampos()) {
+        const item = document.createElement("div");
+        item.setAttribute("class", `formacao-${listaFormacao.childElementCount}`);
+        item.setAttribute("id", `formacao-${listaFormacao.childElementCount}`);
+        
+        item.innerHTML = `
+                <h3>Instituição: ${instituicao.value}</h3>
+                <p>Nível de Formação: ${formatarNivel(nivelFormacao.value)}</p>
+                <p>Curso: ${curso.value}</p>
+                <p>Data de início: ${formatarData(dataInicio.value)}</p>`;
 
-function formatarMesAno(data) {
-    const dataArray = data.split("-");
-    const mes = dataArray[1];
-    const ano = dataArray[0];
-    return `${mes}/${ano}`;
+        if (nivelFormacao.value.endsWith("Comp")) {
+            item.innerHTML += `<p>Data de conclusão: ${formatarData(dataConclusao.value)}</p>`;
+        } else if (nivelFormacao.value.endsWith("Curs")) {
+            item.innerHTML += `<p>Conclusão esperada: ${formatarMesAno(dataConclusaoEsperada.value)}</p>`;
+        } else {
+            item.innerHTML += `<p>Data de conclusão: ${formatarData(dataConclusao.value)}</p>`;
+        }
+        const btnRemover = document.createElement("button");
+        btnRemover.innerText = "Remover";
+        btnRemover.addEventListener("click", () => {
+            item.remove();
+        });
+
+        item.appendChild(btnRemover);
+        listaFormacao.appendChild(item);
+
+
+        listaFormacao.appendChild(item);
+        nivelFormacao.value = "";
+        curso.value = "";
+        instituicao.value = "";
+        dataInicio.value = "";
+        dataConclusao.value = "";
+        dataConclusaoEsperada.value = "";
+        mostrarDataConclusao();
+    }
 }

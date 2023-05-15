@@ -17,12 +17,14 @@ nivelFormacao.addEventListener("change", mostrarDataConclusao);
 //Funções Experiência profissional
 import adicionarExperiencia from "./ExpProf.js";
 import { mostrarCamposExpProf } from "./ExpProf.js";
+import { mostrarSemExp } from "./ExpProf.js";
 const addExpProf = document.getElementById("addExpProf");
 const semExp = document.getElementById("semExperiencia");
 const listaExpProf = document.getElementById("listaExpProf");
 
-semExp.addEventListener("checked", mostrarCamposExpProf);
+semExp.addEventListener("change", mostrarCamposExpProf);
 addExpProf.addEventListener("click", adicionarExperiencia);
+listaExpProf.addEventListener("change", mostrarSemExp);
 
 
 //Função Proximo/Voltar/Gerar
