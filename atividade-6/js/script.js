@@ -55,8 +55,12 @@ function next() {
         experienciaProfissional.style.display = "block";
         listaExpProf.style.display = "block";
     } else if (Etapa == 5) {
+        experienciaProfissional.style.display = "none";
+        listaExpProf.style.display = "none";
         Idiomas
     } else if (Etapa == 6) {
+        btnGerar.style.display = "none";
+        btnNext.style.display = "block";
         Cursos
     
     } else if (Etapa == 7) {
