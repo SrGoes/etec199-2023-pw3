@@ -22,9 +22,19 @@ const addExpProf = document.getElementById("addExpProf");
 const semExp = document.getElementById("semExperiencia");
 const listaExpProf = document.getElementById("listaExpProf");
 
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        mostrarSemExp();
+    });
+});
+
+const config = {
+    childList: true, // Observar mudanças nos filhos da div (adicionados ou removidos)
+    subtree: true, // Observar também os descendentes da div
+  };
+
 semExp.addEventListener("change", mostrarCamposExpProf);
 addExpProf.addEventListener("click", adicionarExperiencia);
-listaExpProf.addEventListener("change", mostrarSemExp);
 
 
 //Função Proximo/Voltar/Gerar
@@ -56,7 +66,9 @@ function next() {
         listaFormacao.style.display = "none";
         experienciaProfissional.style.display = "block";
         listaExpProf.style.display = "block";
+        observer.observe(listaExpProf, config);
     } else if (Etapa == 5) {
+        observer.disconnect();
         experienciaProfissional.style.display = "none";
         listaExpProf.style.display = "none";
         Idiomas

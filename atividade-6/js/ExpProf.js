@@ -69,16 +69,18 @@ export default function adicionarExperiencia(event) {
 export function mostrarCamposExpProf() {
     if (semExp.checked) {
         camposExpProf.style.display = "none";
+        listaExpProf.style.display = "none";
         adicionarExperiencia();
     } else {
         camposExpProf.style.display = "block";
+        listaExpProf.style.display = "block";
     }
 }
 
 export function mostrarSemExp() {
     if (listaExpProf.childElementCount > 0) {
-        semExp.style.display = "none";
+        spSemExp.style.display = "none";
     } else {
-        semExp.style.display = "block";
+        spSemExp.style.display = "block";
     }
 }
