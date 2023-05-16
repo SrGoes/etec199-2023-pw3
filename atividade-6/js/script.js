@@ -87,8 +87,18 @@ next();
 
 btnNext.addEventListener("click", function(event) {
     event.preventDefault();
+    if(Etapa == 4){
+        if(semExp.checked == false || listaExpProf.childElementCount == 0 ){
+            alert("É necessário preencher pelo menos um campo de experiência profissional ou selecionar a opção 'Sem experiência'!");
+            return;
+        } else{
+            Etapa++;
+            next();
+        }
+    } else{
     Etapa++;
     next();
+    }
 });
 
 btnBack.addEventListener("click", function(event) {

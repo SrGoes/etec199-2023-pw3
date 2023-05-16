@@ -30,24 +30,37 @@ function formatarData(data) {
 }
 
 export default function adicionarExperiencia(event) {
-    event.preventDefault();
-    if (validarCampos()) {
+    
+    if (semExp.checked) {
         const item = document.createElement("div");
         item.setAttribute("class", `expProf-${listaExpProf.childElementCount}`);
         item.setAttribute("id", `expProf-${listaExpProf.childElementCount}`);
-        if (semExp.checked) {
-            item.innerHTML = `
-                <h3>Experiência Profissional: Sem Experiência</h3>`;
+        item.innerHTML = `
+            <h3>Experiência Profissional: Sem Experiência</h3>`;
 
-        } else {
-            item.innerHTML = `
-                <h3>Empresa: ${empresa.value}</h3>
-                <p>Cargo: ${cargo.value}</p>
-                <p>Data de início: ${formatarData(dataInicio.value)}</p>
-                <p>Data de saída: ${formatarData(dataSaida.value)}</p>
-                <p>Atividades: ${atividades.value}</p>`;
+        const btnRemover = document.createElement("button");
+        btnRemover.innerText = "Adicionar Experiência";
+        btnRemover.addEventListener("click", () => {
+            item.remove();
+            semExp.checked = false;
+        });
 
-        }
+        item.appendChild(btnRemover);
+        listaExpProf.appendChild(item);
+
+        camposExpProf.style.display = "none";
+
+    } else if (validarCampos()) {
+        const item = document.createElement("div");
+        item.setAttribute("class", `expProf-${listaExpProf.childElementCount}`);
+        item.setAttribute("id", `expProf-${listaExpProf.childElementCount}`);
+        item.innerHTML = `
+            <h3>Empresa: ${empresa.value}</h3>
+            <p>Cargo: ${cargo.value}</p>
+            <p>Data de início: ${formatarData(dataInicio.value)}</p>
+            <p>Data de saída: ${formatarData(dataSaida.value)}</p>
+            <p>Atividades: ${atividades.value}</p>`;
+        
         const btnRemover = document.createElement("button");
                 btnRemover.innerText = "Remover";
                 btnRemover.addEventListener("click", () => {
@@ -64,12 +77,13 @@ export default function adicionarExperiencia(event) {
                 atividades.value = "";
 
     }
+    event.preventDefault();
 }
 
 export function mostrarCamposExpProf() {
     if (semExp.checked) {
-        camposExpProf.style.display = "none";
-        listaExpProf.style.display = "none";
+        camposExpProf.style.display = "block";
+        listaExpProf.style.display = "block";
         adicionarExperiencia();
     } else {
         camposExpProf.style.display = "block";
@@ -81,6 +95,7 @@ export function mostrarSemExp() {
     if (listaExpProf.childElementCount > 0) {
         spSemExp.style.display = "none";
     } else {
-        spSemExp.style.display = "block";
+        spSemExp.style.display = "inline-block";
+        camposExpProf.style.display = "block";
     }
 }
