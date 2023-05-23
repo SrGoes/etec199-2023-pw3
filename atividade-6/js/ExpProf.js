@@ -12,7 +12,7 @@ function validarCampos() {
     const campos = [empresa, cargo, dataInicio, dataSaida, atividades];
     for (const campo of campos) {
         if (listaExpProf.childElementCount >= 3) {
-            alert("Você já adicionou 3 experiências!");
+            alert("Você já adicionou o máximo de experiências!");
             return false;
         } else if(semExp.checked) {
             return true;
@@ -57,9 +57,9 @@ export default function adicionarExperiencia(event) {
         item.innerHTML = `
             <h3>Empresa: ${empresa.value}</h3>
             <p>Cargo: ${cargo.value}</p>
+            <p>Atividades: ${atividades.value}</p>
             <p>Data de início: ${formatarData(dataInicio.value)}</p>
-            <p>Data de saída: ${formatarData(dataSaida.value)}</p>
-            <p>Atividades: ${atividades.value}</p>`;
+            <p>Data de saída: ${formatarData(dataSaida.value)}</p>`;
         
         const btnRemover = document.createElement("button");
                 btnRemover.innerText = "Remover";

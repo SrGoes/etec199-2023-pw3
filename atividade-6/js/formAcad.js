@@ -1,6 +1,6 @@
 const nivelFormacao = document.getElementById("nivelFormacao");
-const curso = document.getElementById("curso");
-const instituicao = document.getElementById("instituicao");
+const curso = document.getElementById("cursoF");
+const instituicao = document.getElementById("instituicaoF");
 const dataInicio = document.getElementById("dataInicioF");
 const dataConclusao = document.getElementById("dataConclusao");
 const Conclusao = document.getElementById("Conclusao");
@@ -11,7 +11,7 @@ function validarCampos() {
     const campos = [nivelFormacao, curso, instituicao, dataInicio];
     for (const campo of campos) {
         if (listaFormacao.childElementCount >= 3) {
-            alert("Você já adicionou 3 formações!");
+            alert("Você já adicionou o máximo de formações!");
             return false;
         } else if (campo.value === "") {
             alert("Por favor, preencha todos os campos para adicionar uma Formação academica");

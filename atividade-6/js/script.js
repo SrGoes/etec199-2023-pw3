@@ -3,6 +3,9 @@ const dadosPessoais = document.getElementById("dadosPessoais");
 const objetivo = document.getElementById("objetivoP");
 const formacaoAcademica = document.getElementById("formacaoAcademica");
 const experienciaProfissional = document.getElementById("experienciaProfissional");
+const Idiomas = document.getElementById("idiomas");
+const cursos = document.getElementById("cursos");
+const curriculo = document.getElementById("curriculo");
 
 //Funções Formação acadêmica
 import adicionarFormacao from "./formAcad.js";
@@ -29,13 +32,30 @@ const observer = new MutationObserver(function(mutations) {
 });
 
 const config = {
-    childList: true, // Observar mudanças nos filhos da div (adicionados ou removidos)
-    subtree: true, // Observar também os descendentes da div
+    childList: true,
+    subtree: true,
   };
 
 semExp.addEventListener("change", mostrarCamposExpProf);
 addExpProf.addEventListener("click", adicionarExperiencia);
 
+//Funções Idiomas
+import adicionarIdioma from "./idiomas.js";
+const addIdioma = document.getElementById("addIdioma");
+const listaIdiomas = document.getElementById("listaIdiomas");
+
+addIdioma.addEventListener("click", adicionarIdioma);
+
+//Funções Cursos
+import adicionarCurso from "./cursos.js";
+const addCurso = document.getElementById("addCurso");
+const listaCursos = document.getElementById("listaCursos");
+
+addCurso.addEventListener("click", adicionarCurso);
+
+//Função Gerar Curriculo
+import gerarCurriculo from "./curri.js";
+import { pdfCV } from "./curri.js";
 
 //Função Proximo/Voltar/Gerar
 const btnNext = document.getElementById("btnNext");
@@ -64,6 +84,8 @@ function next() {
     } else if (Etapa == 4) {
         formacaoAcademica.style.display = "none";
         listaFormacao.style.display = "none";
+        Idiomas.style.display = "none";
+        listaIdiomas.style.display = "none";
         experienciaProfissional.style.display = "block";
         listaExpProf.style.display = "block";
         observer.observe(listaExpProf, config);
@@ -71,15 +93,27 @@ function next() {
         observer.disconnect();
         experienciaProfissional.style.display = "none";
         listaExpProf.style.display = "none";
-        Idiomas
+        cursos.style.display = "none";
+        listaCursos.style.display = "none";
+        btnNext.textContent = "Próximo";
+        Idiomas.style.display = "block";
+        listaIdiomas.style.display = "block";
     } else if (Etapa == 6) {
         btnGerar.style.display = "none";
+        Idiomas.style.display = "none";
+        listaIdiomas.style.display = "none";
+        curriculo.style.display = "none";
         btnNext.style.display = "block";
-        Cursos
-    
+        btnNext.textContent = "Montar Currículo";
+        cursos.style.display = "block";
+        listaCursos.style.display = "block";
     } else if (Etapa == 7) {
         btnNext.style.display = "none";
+        cursos.style.display = "none";
+        listaCursos.style.display = "none";
         btnGerar.style.display = "block";
+        curriculo.style.display = "block";
+        gerarCurriculo();
     }
 }
 
@@ -88,7 +122,7 @@ next();
 btnNext.addEventListener("click", function(event) {
     event.preventDefault();
     if(Etapa == 4){
-        if(semExp.checked == false || listaExpProf.childElementCount == 0 ){
+        if(listaExpProf.childElementCount == 0 ){
             alert("É necessário preencher pelo menos um campo de experiência profissional ou selecionar a opção 'Sem experiência'!");
             return;
         } else{
@@ -105,4 +139,9 @@ btnBack.addEventListener("click", function(event) {
     event.preventDefault();
     Etapa--;
     next();
+});
+
+btnGerar.addEventListener("click", function(event) {
+    event.preventDefault();
+    pdfCV();
 });

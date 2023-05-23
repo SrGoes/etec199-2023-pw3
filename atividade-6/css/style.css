@@ -43,19 +43,13 @@ body {
 }
 
 
-.formacaoAcademica {
+.formacaoAcademica, .experienciaProfissional, .idiomas, .cursos {
     width: 100%;
     display: none;
     align-items: center;
 }
 
-.experienciaProfissional {
-    width: 100%;
-    display: none;
-    align-items: center;
-}
-
-#addFormAcad, #addExpProf {
+#addFormAcad, #addExpProf, #addIdioma, #addCurso {
     background-color: rgb(25, 77, 145);
     color: white;
     border-radius: 30px;
@@ -63,33 +57,49 @@ body {
     margin-top: 5px;
 }
 
-#listaFormacao, #listaExpProf {
+#listaFormacao, #listaExpProf, #listaIdiomas, #listaCursos {
     margin: 10px auto;
     padding: 10px 20px;
     width: 90%;
-    height: 30%;
+    height: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 40px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     display: none;
 }
 
-#listaFormacao > div, #listaExpProf > div {
+#listaFormacao > div, #listaExpProf > div, #listaIdiomas > div, #listaCursos > div {
     display: inline-block;
     width: 25%;
     height: auto;
     max-width: 25vw;
     margin: 0px 2%;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    text-align: center;
     padding: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
+#listaFormacao > div > button, #listaExpProf > div > button, #listaIdiomas > div > button, #listaCursos > div > button {
+    background-color: rgb(145, 25, 25);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    margin-top: 5px;
+}
 
+#curriculo {
+    display: none;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    height: 100vh;
+    border: solid 1px rgb(0, 0, 0);
+}
 /* Config geral */
 form {
     display: flex;
